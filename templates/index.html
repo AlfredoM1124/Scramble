@@ -5,10 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home | Scramble</title>
+    <link rel="stylesheet" href="../public/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="white nav-wrapper">
+                <a href="#!" class="grey-text darken-5 brand-logo flow-text">Scramble</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a class="grey-text" href="#!">Trending</a>
+                    </li>
+                    <li>
+                        <a class="grey-text" href="#!">Explore</a>
+                    </li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li>
+                        <a class="grey-text" href="#!">Trending</a>
+                    </li>
+                    <li>
+                        <a class="grey-text" href="#!">Explore</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
+    <div class="container">
+        <div class="row">
+            <h5 href="#recent">Recent Reviews</h5>
+            <hr>
+            <h5 href="#trending">Trending Reviews</h5>
+            <hr>
+        </div>
+    </div>
+
+    </div>
+    <footer class="white" class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="black-text">Latest Post</h5>
+                    <p class="grey-text text-darken-4">Weow dis is awesome</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                AnimePugZ, Inc © 2017
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../public/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $(".button-collapse").sideNav();
+        });
+    </script>
 </body>
 
 </html>
