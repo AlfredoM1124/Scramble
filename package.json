@@ -1,0 +1,23 @@
+{
+  "name": "backend_scramble",
+  "version": "1.0.0",
+  "description": "Reviews-based social networking website.",
+  "main": "Scramble.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlfredoM1124/Scramble.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlfredoM1124/Scramble/issues"
+  },
+  "homepage": "https://github.com/AlfredoM1124/Scramble#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
