@@ -14,5 +14,6 @@ html {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
-    border-color: lightgray;
+    border-color: darkgrey;
+    border-bottom-width: 3px;
 }
