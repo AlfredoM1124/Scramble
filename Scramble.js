@@ -1,10 +1,14 @@
 // Declare Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
+var routes = require("./controllers/scramble_controller.js");
 
+// ==============================================================================
+// EXPRESS CONFIGURATION
+// This sets up the basic properties for our express server
+// ==============================================================================
 // Create an instance of the express app 
 var app = express();
-var routes = require("./controllers/scramble_controller.js");
 
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 3306;
