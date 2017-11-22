@@ -23,3 +23,5 @@ function postComment (req, res){
 };
 
 
+// Export routes for scramble.js to use.
+module.exports = router;
