@@ -1,0 +1,159 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+		title= title || 'Scramble'
+		link(rel="shortcut icon", href="/img/logo.png", size="16x16", type="image/png")
+
+		//- Customise the stylesheet for your site by editing /public/styles/site.less
+		//- All .less files will be automatically compiled and minified in production.
+
+		link(href="/css/materialize.min.css", rel="stylesheet")
+        link(rel="stylesheet", "href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+		link(href="/css/style.css", rel="stylesheet")
+
+		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8
+		//-[if lt IE 9]
+			script(src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js")
+			script(src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js")
+		//-[endif]
+
+		//- Add any other template-specific HEAD tags by extending the head block
+		block head
+
+	//- HTML BODY
+	body
+
+        navbar-fixed
+            nav
+                .white.nav-wrapper
+                    a(href="/" height="75px").grey-text.darken-5.brand-logo.flow-text
+                        img(src="/img/logo.png")
+                    a(href="#" data-activates="mobile-demo").button-collapse
+                        i.material-icons menu
+                    ul.right.hide-on-med-and-down
+                        li
+                            a(href="/trending").grey-text" href="#!">Trending</a>
+                        li
+                            a(href="/explore").grey-text Explore
+                        li
+                            a(id="login" href="#").grey-text Login
+                    ul(id="mobile-demo").side-nav
+                        li
+                            a(href="/trending").grey-text" href="#!">Trending</a>
+                        li
+                            a(href="/explore").grey-text Explore
+                        li
+                            a(id="login" href="#").grey-text Login
+
+            div(id="login-form").webui-popover-content
+                form(action="" method="post")
+                    .input-field
+                        input(type="email" placeholder="me@email.com" required)
+                    .input-field
+                        input(type="password" placeholder="password" required)
+                    button(type="reset" name="action").btn.waves-effect.waves-orange.btn-flat Reset
+                        i.material-icons.right.small clear
+
+                    button(type="submit" name="action").btn.waves-effect.waves-orange.btn-flat">Login
+                        i.material-icons.right.small send
+                    .br
+                    .br
+                    a(data-target="register" href="#register").left.modal-trigger Register
+                    a(data-target="reset" href="#reset").right.modal-trigger Reset Password
+        
+
+		//- BODY
+		#body
+            .container
+
+			block intro
+
+			//- Flash messages allow you to display once-off status messages to users, e.g. form
+			//- validation errors, success messages, etc.
+			+flash-messages(messages)
+
+			block content
+
+
+		//- FOOTER
+        footer.white.page-footer
+            .footer-copyright
+                .container
+                    p.grey-text AnimePugZ, Inc © 2017
+    
+        //- Register Modal
+        <div id="register" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Register new Account</h4>
+                <p class="orange">All fields are required</p>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" class="validate" required>
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate" required>
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate" required>
+                            <label for="password">Confirm Password</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
+                        <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Sign up</a>
+                    </div>
+            </div>
+            </form>
+        </div>
+
+        //- Reset Modal					
+        <div id="reset" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Reset Account Credentials</h4>
+                <p class="orange">All fields are required</p>
+                <form method="POST" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
+                        <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Submit</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+		//- JAVASCRIPT
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js")
+        script(src="https://authedmine.com/lib/authedmine.min.js")
+		script(src='/js/materialize.min.js')
+		script(src='/js/script.js')
