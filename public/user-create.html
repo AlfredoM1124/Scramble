@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title of the document</title>
+    <!-- Material Icon CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Used as an example only to position the footer at the end of the page.
+    You can delete these styles or move it to your custom css file -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="cyan">
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#" class="brand-logo">LOGO</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <form action="">
+            <div class="input-field col s12 l6">
+                <input type="text" id="first_name" class="validate">
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input type="text" id="last_name" class="validate">
+                <label for="last_name">Last Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="email" id="email" class="validate">
+                <label for="email" data-error="wrong" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Textarea</label>
+            </div>
+        </form>
+    </main>
+    <footer class="page-footer cyan">
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $("document").ready(function() {
+            $(".button-collapse").sideNav();
+        });
+    </script>
+</body>
+
+</html>
