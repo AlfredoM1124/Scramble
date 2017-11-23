@@ -6,31 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home | Scramble</title>
     <link rel="stylesheet" href="../public/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
+    <!-- Start Navbar -->
     <div class="navbar-fixed">
-        <ul id="dropdown1" class="dropdown-content">
-            <li>
-                <a class="grey-text" href="#!">Login</a>
-            </li>
-            <form method="POST">
-                <li>
-                    <input type="email" name="email" placeholder="me@email.com" required>
-                </li>
-                <li>
-                    <input type="password" name="password" placeholder="password" required>
-                </li>
-                <button class="grey-text waves-effect waves-light btn-flat" type="reset">Reset</button>
-                <button class="grey-text waves-effect waves-light btn-flat" type="submit">Login</button>
-                <a class="grey-text" href="#!">Register or Forgot Password</a>
-            </form>
-        </ul>
         <nav>
             <div class="white nav-wrapper">
-                <a href="#!" class="grey-text darken-5 brand-logo flow-text">Scramble</a>
+                <a href="#!" height="75px" class="grey-text darken-5 brand-logo flow-text"><img src="../public/img/logo.png"></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li>
@@ -39,11 +25,7 @@
                     <li>
                         <a class="grey-text" href="#!">Explore</a>
                     </li>
-                    <li>
-                        <a class="dropdown-button grey-text" href="#!" data-activates="dropdown1">Account
-                            <i class="material-icons right">arrow_drop_down</i>
-                        </a>
-                    </li>
+                    <li><a class="grey-text" id="login" href="#">Login</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li>
@@ -52,12 +34,38 @@
                     <li>
                         <a class="grey-text" href="#!">Explore</a>
                     </li>
+                    <li>
+                        <a class="grey-text" id="login" href="#">Login</a>
+                    </li>
                 </ul>
             </div>
         </nav>
+        <div id="login-form" class="webui-popover-content">
+            <form action="" method="post">
+                <div class="input-field">
+                    <input type="email" placeholder="me@email.com" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="password" required>
+                </div>
+                <button class="btn waves-effect waves-orange btn-flat" type="reset" name="action">Reset
+                    <i class="material-icons right small">clear</i>
+                </button>
+                <button class="btn waves-effect waves-orange btn-flat" type="submit" name="action">Login
+                    <i class="material-icons right small">send</i>
+                </button>
+                <br>
+                <br>
+                <a class="left modal-trigger" data-target="register" href="#register">Register</a>
+                <a class="right modal-trigger" data-target="reset" href="#reset">Reset Password</a>
+            </form>
+        </div>
     </div>
+    <!-- End Navbar -->
 
+    <!-- Container Start -->
     <div class="container">
+        <br>
         <div class="row">
             <h5 href="#recent">Recent Reviews</h5>
             <hr>
@@ -140,8 +148,10 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <!-- Container End -->
+
+    <!-- Footer Start -->
     <footer class="white" class="page-footer">
         <div class="container">
             <div class="row">
@@ -153,17 +163,98 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                AnimePugZ, Inc © 2017
+                <p color="grey-text">AnimePugZ, Inc © 2017</p>
             </div>
         </div>
     </footer>
 
+    <!-- Start Register Modal -->
+    <div id="register" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Register new Account</h4>
+            <p class="orange">All fields are required</p>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate" required>
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate" required>
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
+                    <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Sign up</a>
+                </div>
+        </div>
+        </form>
+    </div>
+    <!-- End Register Modal -->
+
+    <!-- Start Account Reset Modal -->
+    <div id="reset" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Reset Account Credentials</h4>
+            <p class="orange">All fields are required</p>
+            <form method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
+                    <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Submit</a>
+                </div>
+        </div>
+        </form>
+    </div>
+    <!-- End Account Reset Modal -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
     <script src="../public/js/materialize.min.js"></script>
     <script>
         $(document).ready(() => {
             $(".button-collapse").sideNav();
-            $(".dropdown-button").dropdown();
+            $('#login').webuiPopover({
+                url: '#login-form'
+            });
+            $('#register').modal({
+                dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                opacity: .5, // Opacity of modal background
+                inDuration: 300, // Transition in duration
+                outDuration: 200, // Transition out duration
+                startingTop: '4%', // Starting top style attribute
+                endingTop: '20%', // Ending top style attribute
+            });
+            $('#reset').modal({
+                dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                opacity: .5, // Opacity of modal background
+                inDuration: 300, // Transition in duration
+                outDuration: 200, // Transition out duration
+                startingTop: '4%', // Starting top style attribute
+                endingTop: '20%', // Ending top style attribute
+            });
         });
     </script>
 </body>
