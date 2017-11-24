@@ -17,6 +17,7 @@ module.exports = function(app) {
 
         db.Post.findAll({
             where: query,
+            include: [db.User]
         }).then(function(dbPost) {
             res.json(dbPost);
         });

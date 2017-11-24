@@ -7,12 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         description: DataTypes.TEXT,
         rating: DataTypes.INTEGER,
         comments: DataTypes.TEXT
-    }, {
-        classMethods: {
-            associate: function(models) {
-                // associations can be defined here
-            }
-        }
     });
+    Post.associate = function(models) {
+        Post.belongsTo(models.User, { foreignKey: 'author' });
+    }
     return Post;
 };

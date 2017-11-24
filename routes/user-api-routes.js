@@ -17,9 +17,18 @@ module.exports = function(app) {
 
         db.User.findAll({
             where: query,
+            include: [db.Post]
         }).then(function(dbUser) {
             res.json(dbUser);
         });
 
     });
+
+    //Create a New User//
+
+    app.post("/api/user", function(req, res) {
+        db.User.create(req.body).then(function(dbUser) {
+            res.json(dbUser);
+        })
+    })
 };
