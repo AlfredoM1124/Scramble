@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         picture: DataTypes.STRING,
         bio: DataTypes.TEXT,
         reputation: DataTypes.INTEGER,
-        password: DataTypes.STRING
+        password: DataTypes.TEXT
     });
     User.associate = function(models) {
         User.hasMany(models.Post, { foreignKey: 'author' });
