@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home | Scramble</title>
     <link rel="stylesheet" href="../public/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
+    <!-- Start Navbar -->
     <div class="navbar-fixed">
         <nav>
             <div class="white nav-wrapper">
-                <a href="#!" class="grey-text darken-5 brand-logo flow-text">Scramble</a>
+                <a href="#!" height="75px" class="grey-text darken-5 brand-logo flow-text"><img src="../public/img/logo.png"></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons grey">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a class="grey-text" href="#!">Trending</a>
@@ -22,6 +25,7 @@
                     <li>
                         <a class="grey-text" href="#!">Explore</a>
                     </li>
+                    <li><a class="grey-text" id="login" href="#">My Account</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li>
@@ -30,10 +34,34 @@
                     <li>
                         <a class="grey-text" href="#!">Explore</a>
                     </li>
+                    <li>
+                        <a class="grey-text" id="login" href="#">My Account</a>
+                    </li>
                 </ul>
             </div>
         </nav>
+        <div id="login-form" class="webui-popover-content">
+            <form action="" method="post">
+                <div class="input-field">
+                    <input type="email" placeholder="me@email.com" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="password" required>
+                </div>
+                <button class="btn waves-effect waves-orange btn-flat" type="reset" name="action">Reset
+                    <i class="material-icons right small">clear</i>
+                </button>
+                <button class="btn waves-effect waves-orange btn-flat" type="submit" name="action">Login
+                    <i class="material-icons right small">send</i>
+                </button>
+                <br>
+                <br>
+                <a class="left modal-trigger" data-target="register" href="#register">Register</a>
+                <a class="right modal-trigger" data-target="reset" href="#reset">Reset Password</a>
+            </form>
+        </div>
     </div>
+    <!-- End Navbar -->
 
     <div class="container">
         <div class="row">
@@ -48,21 +76,36 @@
             </div>
             <div class="col s12">
                 <h4>Your Posts</h1>
-                <hr>
+                    <div class="col s12 m6">
+                        <div class="card grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Kraft Mac & Cheese</span>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                    ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Read More...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Call of Duty WWII</span>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                    ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Read More...</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 
     </div>
     <footer class="white" class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="black-text">Latest Post</h5>
-                    <p class="grey-text text-darken-4">Weow dis is awesome</p>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
             <div class="container">
                 AnimePugZ, Inc © 2017
@@ -70,13 +113,73 @@
         </div>
     </footer>
 
+    <!-- Start Register Modal -->
+    <div id="register" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Register new Account</h4>
+            <p class="orange">All fields are required</p>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate" required>
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate" required>
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
+                    <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Sign up</a>
+                </div>
+        </div>
+        </form>
+    </div>
+    <!-- End Register Modal -->
+
+    <!-- Start Account Reset Modal -->
+    <div id="reset" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Reset Account Credentials</h4>
+            <p class="orange">All fields are required</p>
+            <form method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
+                    <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Submit</a>
+                </div>
+        </div>
+        </form>
+    </div>
+    <!-- End Account Reset Modal -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
     <script src="../public/js/materialize.min.js"></script>
-    <script>
-        $(document).ready(() => {
-            $(".button-collapse").sideNav();
-        });
-    </script>
+    <script src="https://authedmine.com/lib/authedmine.min.js"></script>
+    <script src="../public/js/script.js"></script>
 </body>
 
 </html>
