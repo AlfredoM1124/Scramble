@@ -6,6 +6,7 @@ $(function() {
             username: $("#user-name").val().trim(),
             email: $("#email").val().trim(),
             bio: $("#biography").val().trim(),
+            picture: $("#picture_file").val().trim(),
             password: $("#password").val().trim()
         }
         console.log(new_user);
@@ -15,7 +16,7 @@ $(function() {
             data: new_user
         }).then(function() {
             console.log("new User have been created");
-            location.reload();
+            // location.reload();
         })
     });
 
