@@ -11,7 +11,7 @@ $(function() {
         }
         console.log(new_user);
         // Here im sending the information inside the database
-        $.ajax("/api/user", {
+        $.ajax("/api-user-create", {
             type: 'POST',
             data: new_user
         }).then(function() {
