@@ -1,15 +1,16 @@
 // Declare Dependencies
-var express = require("express");
-var passport = require("passport");
+var express = require('express');
+var passport = require('passport');
+var bodyParser = require('body-parser');
+// Import the Model to use its function
+var db = require("../models");
 
 var router = express.Router();
 var app = express();
 
-// Import the Model to use its function
-var scramble = require("../models/users");
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 // Create all our logic and routes
-
 
 // Functions for USER 
 var UserSearch = function(user, interests){
