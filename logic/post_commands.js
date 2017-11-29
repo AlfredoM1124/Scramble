@@ -18,4 +18,4 @@ module.exports = function uploadFile(picture){
         uploader.uploadFile(req, function(data) {
             res.send(JSON.stringify(data), {'Content-Type': 'text/plain'}, 200);
     });
-};
+})};
