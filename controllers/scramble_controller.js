@@ -11,6 +11,18 @@ var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 // Create all our logic and routes
+router.get('/', (req, res) => {
+    res.redirect('/index');
+});
+
+/**
+ * index page
+ */
+router.get('/index', (req, res) => {
+    db.User.findAll({}).then((results) => {
+        res.render('index', { burgs: results });
+    });
+});
 
 // Functions for USER 
 var UserSearch = function(user, interests){
