@@ -32,27 +32,14 @@ var UserSearch = function(user, interests){
 
 };
 
-var createUser = function(name, gender, bio, interests){
-    this.name = name;
-    this.gender = gender;
-    this.bio = bio;
-    this.interests = interests;
-
+function editUser (req, res){
 
 };
 
-function createProfile (req, res){
+function LoginUser (req, res){
 
 };
-function editInterests (req, res){
 
-};
-function profilePicture (req, res){
-
-};
-function editBio (req, res){
-
-};
 // End USER Functions
 // --------------------------
 // Start ADMIN functions
