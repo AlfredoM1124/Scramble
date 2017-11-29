@@ -20,9 +20,9 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-// require("./routes/user-api-routes.js")(app);
-// require("./routes/post-api-routes.js")(app);
-// require("./routes/html-routes.js")(app)
+// require("./old_routes/user-api-routes.js")(app);
+// require("./old_routes/post-api-routes.js")(app);
+// require("./old_routes/html-routes.js")(app)
 
 var exphbs = require("express-handlebars");
 
