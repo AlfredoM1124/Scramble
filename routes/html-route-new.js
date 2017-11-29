@@ -8,8 +8,10 @@ var Post = require("../models/")["Post"];
 
 //Would render the form to create a new user
 router.get("/user_create", function(req, res) {
-    res.render("user-create");
+    res.render("user-create"); // *****We need to change this to the front end form  * ***
 });
+
+
 /////////////////////////////////////
 // this is the response of the form
 //////////////////////////////////////
@@ -49,7 +51,11 @@ router.get("/admin/", function(req, res) {
         where: query,
         include: [Post]
     }).then(function(user_data) {
+
+
+
         res.render('admin-index', { user_data });
+        // res.json({ user_data });
     });
 
 })
