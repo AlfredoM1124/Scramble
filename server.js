@@ -31,9 +31,11 @@ app.set("view engine", "handlebars");
 
 //Import routes and give the server access to them
 var routes = require("./controllers/user_controller.js");
+var routes_login = require("./controllers/login_controller.js");
 
 app.use("/", routes);
 app.use("/admin", routes);
+app.use("/login", routes_login);
 
 
 // Syncing our sequelize models and then starting our Express app

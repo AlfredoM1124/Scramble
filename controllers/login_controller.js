@@ -5,7 +5,9 @@ var password = require('password-hash-and-salt')
 var router = express.Router();
 var User = require("../models/")["User"];
 
-router.get("/login", function(res, reg) {
+router.get("/", function(req, res) {
 
     res.render("login");
 })
+
+module.exports = router;
