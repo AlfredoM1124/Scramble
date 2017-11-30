@@ -1,5 +1,7 @@
 var express = require("express");
-var password = require('password-hash-and-salt')
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 
 //==========Routers============================
 var router = express.Router();
@@ -23,12 +25,9 @@ router.post("/api-user-create", function(req, res) {
     //Here we are processing the hashing of the password with a promise in order to save it
     //into the database. The resolve of the function would result in the addition into the database
     var insert = new Promise(function(resolve, reject) {
-        password(req.body.password).hash(function(error, hash) {
-            if (error)
-                throw new Error('something is wrong');
-            mypassword = hash;
-            resolve(mypassword);
-        })
+        var hash = bcrypt.hashSync(req.body.password, saltRounds);
+        mypassword = hash;
+        resolve(mypassword);
     }).then(function() {
         User.create({
             full_name: req.body.full_name,
