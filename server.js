@@ -24,11 +24,12 @@ app.use(express.static("public"));
 
 // Password check and handle
 // =============================================================
-app.use(passport.initialize());
-app.use(passport.session());
+
 app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 passport.use(new Strategy(
     function(username, password, done) {
@@ -53,12 +54,12 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
     User.findOne({
-        where: { 'id': id }
+        where: { id: id }
     }).then(function(user) {
         if (user == null) {
             done(new Error('Wrong user id'))
         }
-        done(null.user)
+        done(null, user)
     })
 })
 

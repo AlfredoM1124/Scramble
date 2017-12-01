@@ -12,8 +12,17 @@ router.get("/", function(req, res) {
 
 router.post("/",
     passport.authenticate('local', {
-        successRedirect: '/admin',
+        successRedirect: '/login/user_info',
         failureRedirect: '/login'
     })
 )
+
+router.get("/user_info", function(req, res) {
+    User.findOne({
+        where: { id: req.user.id }
+    }).then(function(data_user) {
+        res.json(data_user);
+    })
+})
+
 module.exports = router;
