@@ -1,147 +1,152 @@
-include ../mixins/flash-messages
+//- default.pug
+html(lang="en")
+    head
+    meta(charset='UTF-8')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    |     
+    title Home | Scramble
+    |     
+    link(rel='stylesheet', href='../public/css/materialize.min.css')
+    |     
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css')
+    |     
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    |     
+    link(rel='stylesheet', href='../public/css/style.css')
+    // Start Navbar
+    .navbar-fixed
+    nav
+        .white.nav-wrapper
+        a.grey-text.darken-5.brand-logo.flow-text(href='#!', height='75px')
+            img(src='../public/img/logo.png')
+        |                 
+        a.button-collapse(href='#', data-activates='mobile-demo')
+            i.material-icons.grey menu
+        |                 
+        ul.right.hide-on-med-and-down
+            li
+            a.grey-text(href='#!') Trending
+            |                     
+            li
+            a.grey-text(href='#!') Explore
+            |                     
+            li
+            a#login.grey-text(href='#') Login
+        |                 
+        ul#mobile-demo.side-nav
+            li
+            a.grey-text(href='#!') Trending
+            |                     
+            li
+            a.grey-text(href='#!') Explore
+            |                     
+            li
+            a#login.grey-text(href='#') Login
+    |         
+    #login-form.webui-popover-content
+        form(action='', method='post')
+        .input-field
+            input(type='email', placeholder='me@email.com', required='')
+        |                 
+        .input-field
+            input(type='password', placeholder='password', required='')
+        |                 
+        button.btn.waves-effect.waves-orange.btn-flat(type='reset', name='action')
+            | Reset
+            i.material-icons.right.small clear
+        |                 
+        button.btn.waves-effect.waves-orange.btn-flat(type='submit', name='action')
+            | Login
+            i.material-icons.right.small send
+        |                 
+        br
+        |                 
+        br
+        |                 
+        a.left.modal-trigger(data-target='register', href='#register') Register
+        |                 
+        a.right.modal-trigger(data-target='reset', href='#reset') Reset Password
+    // End Navbar
+    // Container Start 
+    block content           
 
-doctype html
-html
-
-	//- HTML HEADER
-	head
-		meta(charset="utf-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-
-		title= title || 'Scramble'
-		link(rel="shortcut icon", href="/img/logo.png", size="16x16", type="image/png")
-
-		//- Customise the stylesheet for your site by editing /public/styles/site.less
-		//- All .less files will be automatically compiled and minified in production.
-
-		link(href="/css/materialize.min.css", rel="stylesheet")
-        link(rel="stylesheet", "href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css")
-        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
-		link(href="/css/style.css", rel="stylesheet")
-
-		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-		//- Safely remove this block if you are not targeting IE8
-		//-[if lt IE 9]
-			script(src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js")
-			script(src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js")
-		//-[endif]
-
-		//- Add any other template-specific HEAD tags by extending the head block
-		block head
-
-	//- HTML BODY
-	body
-
-        navbar-fixed
-            nav
-                .white.nav-wrapper
-                    a(href="/" height="75px").grey-text.darken-5.brand-logo.flow-text
-                        img(src="/img/logo.png")
-                    a(href="#" data-activates="mobile-demo").button-collapse
-                        i.material-icons menu
-                    ul.right.hide-on-med-and-down
-                        li
-                            a(href="/trending").grey-text" href="#!">Trending</a>
-                        li
-                            a(href="/explore").grey-text Explore
-                        li
-                            a(id="login" href="#").grey-text Login
-                    ul(id="mobile-demo").side-nav
-                        li
-                            a(href="/trending").grey-text" href="#!">Trending</a>
-                        li
-                            a(href="/explore").grey-text Explore
-                        li
-                            a(id="login" href="#").grey-text Login
-
-            div(id="login-form").webui-popover-content
-                form(action="" method="post")
-                    .input-field
-                        input(type="email" placeholder="me@email.com" required)
-                    .input-field
-                        input(type="password" placeholder="password" required)
-                    button(type="reset" name="action").btn.waves-effect.waves-orange.btn-flat Reset
-                        i.material-icons.right.small clear
-
-                    button(type="submit" name="action").btn.waves-effect.waves-orange.btn-flat">Login
-                        i.material-icons.right.small send
-                    .br
-                    .br
-                    a(data-target="register" href="#register").left.modal-trigger Register
-                    a(data-target="reset" href="#reset").right.modal-trigger Reset Password
-        
-
-		//- BODY
-		#body
-            .container
-
-			block intro
-
-			//- Flash messages allow you to display once-off status messages to users, e.g. form
-			//- validation errors, success messages, etc.
-			+flash-messages(messages)
-
-			block content
-
-
-		//- FOOTER
-        footer.white.page-footer
-            .footer-copyright
-                .container
-                    p.grey-text AnimePugZ, Inc © 2017
-    
-        //- Register Modal
-        div(id="register").modal.bottom-sheet
-            div.modal-content
-                h4 Register new Account
-                p.orange All fields are required
-                form.col.s12
-                    .row
-                        .input-field.col.s6
-                            input(id="first_name" type="text" ).validate
-                            label("first_name") First Name
-                        .input-field.col.s6
-                            input(id="last_name" type="text" required).validate
-                            label(for="last_name") Last Name
-                    .row
-                        .input-field.col.s12
-                            input(id="email" type="email" required).validate
-                            label(for="email") Email
-
+    // Container End
+    // Footer Start
+    footer.white
+    .footer-copyright
+        .container
+        p(color='grey-text') AnimePugZ, Inc &copy; 2017
+    // Start Register Modal
+    #register.modal.bottom-sheet
+    .modal-content
+        h4 Register new Account
+        |             
+        p.orange All fields are required
+        |             
+        form.col.s12
         .row
-  .input-field.col.s6
-    input#password.validate(type='password', required='')
-    |         
-    label(for='password') Password
-  |     
-        .input-field.col.s6
-    input#password.validate(type='password', required='')
-    |         
-    label(for='password') Confirm Password
+            .input-field.col.s6
+            input#first_name.validate(type='text', required='')
+            |                         
+            label(for='first_name') First Name
+            |                     
+            .input-field.col.s6
+            input#last_name.validate(type='text', required='')
+            |                         
+            label(for='last_name') Last Name
+        |                 
+        .row
+            .input-field.col.s12
+            input#email.validate(type='email', required='')
+            |                         
+            label(for='email') Email
+        |                 
+        .row
+            .input-field.col.s6
+            input#password.validate(type='password', required='')
+            |                         
+            label(for='password') Password
+            |                     
+            .input-field.col.s6
+            input#password.validate(type='password', required='')
+            |                         
+            label(for='password') Confirm Password
+        |                 
         .modal-footer
-  button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-    | Reset
-  button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
-    | Sign up
-
-        //- Reset Modal					
-        div(id="reset").modal.bottom-sheet
-            .modal-content"
-                h4. Reset Account Credentials
-                p.orange All fields are required
-                form(method="POST").col.s12
-                    .row
-                        .input-field.col.s12
-                            input(id="email" type="email" required).validate
-                            label(for="email") Email
-                    .modal-footer
-                        button(type="reset").modal-action.modal-close.waves-effect.waves-orange.btn-flat Reset
-                        button(type="submit").modal-action.modal-close.waves-effect.waves-orange.btn-flat Submit
-
-		//- JAVASCRIPT
-		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-        script(src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js")
-        script(src="https://authedmine.com/lib/authedmine.min.js")
-		script(src='/js/materialize.min.js')
-		script(src='/js/script.js')
+            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+            | Reset
+            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
+            | Sign up
+    // End Register Modal
+    // Start Account Reset Modal
+    #reset.modal.bottom-sheet
+    .modal-content
+        h4 Reset Account Credentials
+        |             
+        p.orange All fields are required
+        |             
+        form.col.s12(method='POST')
+        .row
+            .input-field.col.s12
+            input#email.validate(type='email', required='')
+            |                         
+            label(for='email') Email
+        |                 
+        .modal-footer
+            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+            | Reset
+            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
+            | Submit
+    // End Account Reset Modal
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    |     
+    script(src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js')
+    |     
+    script(src='../public/js/materialize.min.js')
+    |     
+    script(src='https://authedmine.com/lib/authedmine.min.js')
+    |     
+    script(src='../public/js/script.js')
