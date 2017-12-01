@@ -11,6 +11,7 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
+var User = require("./models")["User"];
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -24,17 +25,17 @@ app.use(express.static("public"));
 // Password check and handle
 // =============================================================
 app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(require('morgan')('combined'));
-// app.use(require('cookie-parser')());
-// app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(passport.session());
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
 passport.use(new Strategy(
     function(username, password, done) {
-        db.User.findOne({
-            where: { 'username': username }
+        console.log(username, password);
+        User.findOne({
+            where: { username: username }
         }).then(function(user) {
-            console.log(user);
             if (!user) {
                 return done(null, false, )
             }
@@ -48,6 +49,17 @@ passport.use(new Strategy(
 
 passport.serializeUser(function(user, done) {
     done(null, user.id)
+})
+
+passport.deserializeUser(function(id, done) {
+    User.findOne({
+        where: { 'id': id }
+    }).then(function(user) {
+        if (user == null) {
+            done(new Error('Wrong user id'))
+        }
+        done(null.user)
+    })
 })
 
 

@@ -11,8 +11,6 @@ $(function() {
             type: "POST",
             data: login
         }).then(function(data) {
-            console.log("data_coming " + data);
-
             console.log("user have been evaluated");
         })
     })
