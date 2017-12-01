@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt');
+var pug = require('pug');
 
 // Sets up the Express App
 // =============================================================
@@ -69,17 +70,17 @@ passport.deserializeUser(function(id, done) {
 // require("./old_routes/post-api-routes.js")(app);
 // require("./old_routes/html-routes.js")(app)
 
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("pug", ({ defaultLayout: "default" }));
+app.set('views', './views')
+app.set("view engine", "pug");
 
 //Import routes and give the server access to them
-var routes = require("./controllers/user_controller.js");
-var routes_login = require("./controllers/login_controller.js");
+var routes_index = require("./controllers/index_controller");
+var routes_admin = require("./controllers/user_controller");
+var routes_login = require("./controllers/login_controller");
 
-app.use("/", routes);
-app.use("/admin", routes);
+app.use("/", routes_index);
+app.use("/admin", routes_admin);
 app.use("/login", routes_login);
 
 
