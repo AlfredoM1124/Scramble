@@ -92,64 +92,52 @@ html
                     p.grey-text AnimePugZ, Inc © 2017
     
         //- Register Modal
-        <div id="register" class="modal bottom-sheet">
-            <div class="modal-content">
-                <h4>Register new Account</h4>
-                <p class="orange">All fields are required</p>
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate" required>
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate" required>
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" required>
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="password" type="password" class="validate" required>
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="password" type="password" class="validate" required>
-                            <label for="password">Confirm Password</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
-                        <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Sign up</a>
-                    </div>
-            </div>
-            </form>
-        </div>
+        div(id="register").modal.bottom-sheet
+            div.modal-content
+                h4 Register new Account
+                p.orange All fields are required
+                form.col.s12
+                    .row
+                        .input-field.col.s6
+                            input(id="first_name" type="text" ).validate
+                            label("first_name") First Name
+                        .input-field.col.s6
+                            input(id="last_name" type="text" required).validate
+                            label(for="last_name") Last Name
+                    .row
+                        .input-field.col.s12
+                            input(id="email" type="email" required).validate
+                            label(for="email") Email
+
+        .row
+  .input-field.col.s6
+    input#password.validate(type='password', required='')
+    |         
+    label(for='password') Password
+  |     
+        .input-field.col.s6
+    input#password.validate(type='password', required='')
+    |         
+    label(for='password') Confirm Password
+        .modal-footer
+  button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+    | Reset
+  button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
+    | Sign up
 
         //- Reset Modal					
-        <div id="reset" class="modal bottom-sheet">
-            <div class="modal-content">
-                <h4>Reset Account Credentials</h4>
-                <p class="orange">All fields are required</p>
-                <form method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" required>
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="modal-action modal-close waves-effect waves-orange btn-flat">Reset</a>
-                        <button type="submit" class="modal-action modal-close waves-effect waves-orange btn-flat">Submit</a>
-                    </div>
-                </div>
-            </form>
-        </div>
+        div(id="reset").modal.bottom-sheet
+            .modal-content"
+                h4. Reset Account Credentials
+                p.orange All fields are required
+                form(method="POST").col.s12
+                    .row
+                        .input-field.col.s12
+                            input(id="email" type="email" required).validate
+                            label(for="email") Email
+                    .modal-footer
+                        button(type="reset").modal-action.modal-close.waves-effect.waves-orange.btn-flat Reset
+                        button(type="submit").modal-action.modal-close.waves-effect.waves-orange.btn-flat Submit
 
 		//- JAVASCRIPT
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
