@@ -9,7 +9,7 @@ html(lang="en")
     |     
     title Home | Scramble
     |     
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+    link(rel='stylesheet', href='/css/materialize.min.css')
     |     
     link(rel='stylesheet', href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css')
     |     
@@ -18,57 +18,57 @@ html(lang="en")
     link(rel='stylesheet', href='/css/style.css')
     // Start Navbar
     .navbar-fixed
-    nav
-        .white.nav-wrapper
-        a.grey-text.darken-5.brand-logo.flow-text(href='#!', height='75px')
-            img(src='/img/logo.png')
-        |                 
-        a.button-collapse(href='#', data-activates='mobile-demo')
-            i.material-icons.grey menu
-        |                 
-        ul.right.hide-on-med-and-down
-            li
-            a.grey-text(href='#!') Trending
-            |                     
-            li
-            a.grey-text(href='#!') Explore
-            |                     
-            li
-            a#login.grey-text(href='#') Login
-        |                 
-        ul#mobile-demo.side-nav
-            li
-            a.grey-text(href='#!') Trending
-            |                     
-            li
-            a.grey-text(href='#!') Explore
-            |                     
-            li
-            a#login.grey-text(href='#') Login
-    |         
-    #login-form.webui-popover-content
-        form(action='', method='post')
-        .input-field
-            input(type='email', placeholder='me@email.com', required='')
-        |                 
-        .input-field
-            input(type='password', placeholder='password', required='')
-        |                 
-        button.btn.waves-effect.waves-orange.btn-flat(type='reset', name='action')
-            | Reset
-            i.material-icons.right.small clear
-        |                 
-        button.btn.waves-effect.waves-orange.btn-flat(type='submit', name='action')
-            | Login
-            i.material-icons.right.small send
-        |                 
-        br
-        |                 
-        br
-        |                 
-        a.left.modal-trigger(data-target='register', href='#register') Register
-        |                 
-        a.right.modal-trigger(data-target='reset', href='#reset') Reset Password
+        nav
+            .white.nav-wrapper
+                a.grey-text.darken-5.brand-logo.flow-text(href='#!', height='75px')
+                    img(src='/img/logo.png')
+                |                 
+                a.button-collapse(href='#', data-activates='mobile-demo')
+                    i.material-icons.grey menu
+                |                 
+                ul.right.hide-on-med-and-down
+                    li
+                        a.grey-text(href='#!') Trending
+                    |                     
+                    li
+                        a.grey-text(href='#!') Explore
+                    |                     
+                    li
+                        a#login.grey-text(href='#') Login
+                |                 
+                ul#mobile-demo.side-nav
+                    li
+                        a.grey-text(href='#!') Trending
+                    |                     
+                    li
+                        a.grey-text(href='#!') Explore
+                    |                     
+                    li
+                        a#login.grey-text(href='#') Login
+        |         
+        #login-form.webui-popover-content
+            form(action='', method='POST')
+                .input-field
+                    input(type='email', placeholder='me@email.com', required='')
+                |                 
+                .input-field
+                    input(type='password', placeholder='password', required='')
+                |                 
+                button.btn.waves-effect.waves-orange.btn-flat(type='reset', name='action')
+                    | Reset
+                    i.material-icons.right.small clear
+                |                 
+                button.btn.waves-effect.waves-orange.btn-flat(type='submit', name='action')
+                    | Login
+                    i.material-icons.right.small send
+                |                 
+                br
+                |                 
+                br
+                |                 
+                a.left.modal-trigger(data-target='register', href='#register') Register
+                |                 
+                a.right.modal-trigger(data-target='reset', href='#reset') Reset Password
     // End Navbar
     // Container Start 
     block content           
@@ -76,70 +76,70 @@ html(lang="en")
     // Container End
     // Footer Start
     footer.white
-    .footer-copyright
-        .container
-        p(color='grey-text') AnimePugZ, Inc &copy; 2017
+        .footer-copyright
+            .container
+                p(color='grey-text') AnimePugZ, Inc &copy; 2017
     // Start Register Modal
     #register.modal.bottom-sheet
-    .modal-content
-        h4 Register new Account
-        |             
-        p.orange All fields are required
-        |             
-        form.col.s12
-        .row
-            .input-field.col.s6
-            input#first_name.validate(type='text', required='')
-            |                         
-            label(for='first_name') First Name
-            |                     
-            .input-field.col.s6
-            input#last_name.validate(type='text', required='')
-            |                         
-            label(for='last_name') Last Name
-        |                 
-        .row
-            .input-field.col.s12
-            input#email.validate(type='email', required='')
-            |                         
-            label(for='email') Email
-        |                 
-        .row
-            .input-field.col.s6
-            input#password.validate(type='password', required='')
-            |                         
-            label(for='password') Password
-            |                     
-            .input-field.col.s6
-            input#password.validate(type='password', required='')
-            |                         
-            label(for='password') Confirm Password
-        |                 
-        .modal-footer
-            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-            | Reset
-            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
-            | Sign up
+        .modal-content
+            h4 Register new Account
+            |             
+            p.orange All fields are required
+            |             
+            form.col.s12
+                .row
+                    .input-field.col.s6
+                    input#first_name.validate(type='text', required='')
+                    |                         
+                    label(for='first_name') First Name
+                    |                     
+                    .input-field.col.s6
+                    input#last_name.validate(type='text', required='')
+                    |                         
+                    label(for='last_name') Last Name
+                |                 
+                .row
+                    .input-field.col.s12
+                    input#email.validate(type='email', required='')
+                    |                         
+                    label(for='email') Email
+                |                 
+                .row
+                    .input-field.col.s6
+                    input#password.validate(type='password', required='')
+                    |                         
+                    label(for='password') Password
+                    |                     
+                    .input-field.col.s6
+                    input#password.validate(type='password', required='')
+                    |                         
+                    label(for='password') Confirm Password
+            |                 
+            .modal-footer
+                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+                | Reset
+                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
+                | Sign up
     // End Register Modal
     // Start Account Reset Modal
     #reset.modal.bottom-sheet
-    .modal-content
-        h4 Reset Account Credentials
-        |             
-        p.orange All fields are required
-        |             
-        form.col.s12(method='POST')
-        .row
-            .input-field.col.s12
-            input#email.validate(type='email', required='')
-            |                         
-            label(for='email') Email
-        |                 
-        .modal-footer
-            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-            | Reset
-            button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
-            | Submit
+        .modal-content
+            h4 Reset Account Credentials
+            |             
+            p.orange All fields are required
+            |             
+            form.col.s12(method='POST')
+            .row
+                .input-field.col.s12
+                    input#email.validate(type='email', required='')
+                    |                         
+                    label(for='email') Email
+            |                 
+            .modal-footer
+                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+                | Reset
+                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
+                | Submit
     // End Account Reset Modal
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     |     
