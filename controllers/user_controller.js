@@ -46,7 +46,7 @@ router.post("/api-user-create", function(req, res) {
 
 
 
-router.get("/admin/", function(req, res) {
+router.get("/admin", function(req, res) {
     var query = {};
     User.findAll({
         where: query,
