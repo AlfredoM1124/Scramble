@@ -1,7 +1,8 @@
 var express = require("express");
+// Encryption package
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
-
+//
 
 //==========Routers============================
 var router = express.Router();
@@ -25,6 +26,7 @@ router.post("/api-user-create", function(req, res) {
     //Here we are processing the hashing of the password with a promise in order to save it
     //into the database. The resolve of the function would result in the addition into the database
     var insert = new Promise(function(resolve, reject) {
+        //Encryption process . Is collectin the password field from the form and hash it
         var hash = bcrypt.hashSync(req.body.password, saltRounds);
         mypassword = hash;
         resolve(mypassword);

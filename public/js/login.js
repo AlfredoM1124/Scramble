@@ -7,10 +7,12 @@ $(function() {
         }
         console.log(login);
         //sending the login information into the api controller to evaluate the result
-        $.ajax("/login/api-user-login", {
+        $.ajax("/login/", {
             type: "POST",
             data: login
-        }).then(function() {
+        }).then(function(data) {
+            console.log("data_coming " + data);
+
             console.log("user have been evaluated");
         })
     })

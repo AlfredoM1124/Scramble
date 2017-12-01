@@ -1,5 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require('passport');
+var Strategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt');
 
 // Sets up the Express App
 // =============================================================
@@ -11,12 +14,42 @@ var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
 app.use(express.static("public"));
+
+// Password check and handle
+// =============================================================
+app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(require('morgan')('combined'));
+// app.use(require('cookie-parser')());
+// app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+
+passport.use(new Strategy(
+    function(username, password, done) {
+        db.User.findOne({
+            where: { 'username': username }
+        }).then(function(user) {
+            console.log(user);
+            if (!user) {
+                return done(null, false, )
+            }
+            if (bcrypt.compareSync(password, user.password)) {
+                return done(null, user);
+            }
+            return done(null, false)
+        })
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id)
+})
+
 
 // Routes
 // =============================================================
