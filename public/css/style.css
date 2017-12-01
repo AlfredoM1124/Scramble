@@ -1,9 +1,19 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+html {
+    color: grey;
+    margin: 0;
+    padding: 0;
 }
 
-main {
-    flex: 1 0 auto;
+.brand-logo {
+    color: grey;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border-color: darkgrey;
+    border-bottom-width: 3px;
 }
