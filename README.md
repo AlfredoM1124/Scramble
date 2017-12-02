@@ -35,7 +35,7 @@
 - Thank you to my group members for all their hard work and dedication. This project would be nothing without them. (Ruben Jose, David Hurley, Patrick Galloway)
 
 ## Future Updates 
-  - Amazon marketplace intigration.
+  - Amazon marketplace integration.
   - Curated library of Reviews customized for each User.
   - Premium Subscription with upgraded features.
   - More accessible interface.
