@@ -81,7 +81,7 @@ var routes_login = require("./controllers/login_controller");
 
 app.use("/", routes_index);
 app.use("/admin", routes_admin);
-app.use("/login", routes_login);
+app.use("/account", routes_login);
 
 
 // Syncing our sequelize models and then starting our Express app

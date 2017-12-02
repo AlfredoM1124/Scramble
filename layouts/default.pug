@@ -80,6 +80,18 @@ html(lang="en")
         .footer-copyright
             .container
                 p(color='grey-text') AnimePugZ, Inc &copy; 2017
+
+    // Start Post Modal
+    .modal(id="post")
+        .modal-content 
+            h4 
+              block titleHead
+            p 
+              block postGlob
+        .modal-footer
+            a(href="#!").modal-action.modal-close.waves-effect.waves-orange.btn-flat Close
+    // End Post Modal
+
     // Start Register Modal
     #register.modal.bottom-sheet
         .modal-content
@@ -112,10 +124,10 @@ html(lang="en")
                         label(for='password') Confirm Password
                 |                 
                 .modal-footer
-                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-                    | Reset
-                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit', href="/create_user")
-                    | Sign up
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset') Reset
+                    |
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit', href="/create_user") Sign up
+                    | 
     // End Register Modal
     // Start Account Reset Modal
     #reset.modal.bottom-sheet
@@ -131,10 +143,10 @@ html(lang="en")
                         label(for='email') Email
                 |                 
                 .modal-footer
-                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-                    | Reset
-                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
-                    | Submit
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset') Reset
+                    |
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit') Submit
+                    | 
     // End Account Reset Modal
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     |     

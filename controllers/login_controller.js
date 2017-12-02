@@ -7,8 +7,14 @@ var User = require("../models/")["User"];
 
 router.post("/",
     passport.authenticate('local', {
-        successRedirect: '/admin',
-        failureRedirect: '/login'
+        successRedirect: '/account',
+        failureRedirect: '/failed'
     })
 )
+
+router.get('/failed', (req, res) => {
+    res.render('failed');
+});
+
+
 module.exports = router;

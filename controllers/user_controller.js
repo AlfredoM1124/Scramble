@@ -38,13 +38,13 @@ router.post("/user-create", function(req, res) {
             bio: req.body.bio,
             password: mypassword
         }).then(function(dbUser) {
-            res.redirect('/account/:dbUser.username')
+            res.redirect('/account')
         });
     });
 
 });
 
-router.get("/admin", function(req, res) {
+router.get("/account", function(req, res) {
     var query = {};
     User.findAll({
         where: query,
