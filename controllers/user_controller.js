@@ -9,16 +9,16 @@ var router = express.Router();
 var User = require("../models/")["User"];
 var Post = require("../models/")["Post"];
 
-//Would render the form to create a new user
-router.get("/user_create", function(req, res) {
-    res.render("user-create"); // *****We need to change this to the front end form  * ***
-});
+// //Would render the form to create a new user
+// router.get("/user_create", function(req, res) {
+//     res.render("user-create"); // *****We need to change this to the front end form  * ***
+// });
 
 
 /////////////////////////////////////
 // this is the response of the form
 //////////////////////////////////////
-router.post("/api-user-create", function(req, res) {
+router.post("/user-create", function(req, res) {
     //Create a New User//
 
     //Creating a new variable to save a password hash and salted
@@ -38,13 +38,11 @@ router.post("/api-user-create", function(req, res) {
             bio: req.body.bio,
             password: mypassword
         }).then(function(dbUser) {
-            res.json(dbUser);
+            res.redirect('/account/:dbUser.username')
         });
     });
 
 });
-
-
 
 router.get("/admin", function(req, res) {
     var query = {};
@@ -52,13 +50,8 @@ router.get("/admin", function(req, res) {
         where: query,
         include: [Post]
     }).then(function(user_data) {
-
-
-
-        res.render('admin-index', { user_data });
-        // res.json({ user_data });
+        rses.render('admin', { user_data });
     });
-
 })
 
 module.exports = router;
