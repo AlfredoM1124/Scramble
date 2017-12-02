@@ -66,9 +66,10 @@ html(lang="en")
                 |                 
                 br
                 |                 
-                a.left.modal-trigger(data-target='register', href='/user_create') Register
-                |                 
-                a.right.modal-trigger(data-target='reset', href='/reset_pass') Reset Password
+                a.left.modal-trigger(data-target='register', id='#register') 
+                    | Register           
+                a.right.modal-trigger(data-target='reset', id='#reset')
+                    | Reset Password
     // End Navbar
     // Container Start 
     block content           
@@ -86,40 +87,35 @@ html(lang="en")
             |             
             p.orange All fields are required
             |             
-            form(method="POST").col.s12
+            form(action="/login" method="POST").col.s12
                 .row
                     .input-field.col.s6
-                    input#first_name.validate(type='text', required='')
-                    |                         
-                    label(for='first_name') First Name
+                        input#first_name.validate(type='text', required='')                       
+                        label(for='first_name') First Name
                     |                     
                     .input-field.col.s6
-                    input#last_name.validate(type='text', required='')
-                    |                         
-                    label(for='last_name') Last Name
+                        input#last_name.validate(type='text', required='')                   
+                        label(for='last_name') Last Name
                 |                 
                 .row
                     .input-field.col.s12
-                    input#email.validate(type='email', required='')
-                    |                         
-                    label(for='email') Email
+                        input#email.validate(type='email', required='')                         
+                        label(for='email') Email
                 |                 
                 .row
                     .input-field.col.s6
-                    input#password.validate(type='password', required='')
-                    |                         
-                    label(for='password') Password
-                    |                     
+                        input#password.validate(type='password', required='')                      
+                        label(for='password') Password
+                    |             
                     .input-field.col.s6
-                    input#password.validate(type='password', required='')
-                    |                         
-                    label(for='password') Confirm Password
-            |                 
-            .modal-footer
-                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-                | Reset
-                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit' href="/user_create")
-                | Sign up
+                        input#password.validate(type='password', required='')
+                        label(for='password') Confirm Password
+                |                 
+                .modal-footer
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+                    | Reset
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit', href="/create_user")
+                    | Sign up
     // End Register Modal
     // Start Account Reset Modal
     #reset.modal.bottom-sheet
@@ -128,18 +124,17 @@ html(lang="en")
             |             
             p.orange All fields are required
             |             
-            form.col.s12(method='POST')
+            form.col.s12(action="/reset_pass", method='POST')
                 .row
                     .input-field.col.s12
-                        input#email.validate(type='email', required='')
-                        |                         
+                        input#email.validate(type='email', required)
                         label(for='email') Email
-            |                 
-            .modal-footer
-                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
-                | Reset
-                button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit' href="/reset_pass")
-                | Submit
+                |                 
+                .modal-footer
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='reset')
+                    | Reset
+                    button.modal-action.modal-close.waves-effect.waves-orange.btn-flat(type='submit')
+                    | Submit
     // End Account Reset Modal
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     |     
