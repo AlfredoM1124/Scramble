@@ -6,14 +6,14 @@ Project Name/Intro
 
 -    The interface is designed to be easy to understand and access, drawing inspiration from websites such as Medium. User created reviews will be randomly posted on the front page for guests to browse through.
 
-Scramble is still in development.
+- Scramble is still in development.
 
 Why does it exist?
-We were strongly inspired by a website called, “Medium”. 
+- We were strongly inspired by a website called, “Medium”. 
 
-Medium provides users with thousands of random articles every day, all written by the users for the users. It encourages a trustworthy environment, where users can share what’s on their mind.
+- Medium provides users with thousands of random articles every day, all written by the users for the users. It encourages a trustworthy environment, where users can share what’s on their mind.
 
-This website, Scramble, is unique because it is dedicated to sharing feedback on existing products.
+- This website, Scramble, is unique because it is dedicated to sharing feedback on existing products.
 
 Dependencies:
  - B-Crypt
@@ -32,7 +32,7 @@ Dependencies:
 
 Contributors:
 
-Thank you to my group members for all their hard work and dedication. This project would be nothing without them. (Ruben Jose, David Hurley, Patrick Galloway)
+- Thank you to my group members for all their hard work and dedication. This project would be nothing without them. (Ruben Jose, David Hurley, Patrick Galloway)
 
 -- Future Updates -- 
   - Amazon marketplace intigration.
