@@ -29,6 +29,7 @@
  - Passport Local
  - PUG
  - Sequelize
+ - Nginx
 
 ## Credits:
 
