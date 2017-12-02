@@ -1,6 +1,6 @@
 # Scramble
 
-## Project Name/Intro
+## Project Intro
 
 -    Scramble is a social networking website dedicated to Product Reviews. Users can create accounts to post their feedback for existing products such as backpacks, televisions, and sunglasses. It's goal is to provide an efficient way to share your opinions on tangible products being sold on the market, which can later be referenced by real users who are looking to purchase that product. 
 
