@@ -15,6 +15,7 @@ $(function() {
             type: 'POST',
             data: new_user
         }).then(function() {
+            window.location.href = "/";
             console.log("new User have been created");
             // location.reload();
         })
