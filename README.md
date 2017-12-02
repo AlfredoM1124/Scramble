@@ -16,24 +16,23 @@ Medium provides users with thousands of random articles every day, all written b
 This website, Scramble, is unique because it is dedicated to sharing feedback on existing products.
 
 Dependencies:
-    - B-Crypt
-    - Body Parser
-    - Cookie Parser
-    - Express
-    - Express Handlebars
-    - Express Session
-    - Express Uploader
-    - Morgan
-    - MySQL2
-    - Passport
-    - Passport Local
-    - PUG
-    - Sequelize
+ - B-Crypt
+ - Body Parser
+ - Cookie Parser
+ - Express
+ - Express Handlebars
+ - Express Session
+ - Express Uploader
+ - Morgan
+ - MySQL2
+ - Passport
+ - Passport Local
+ - PUG
+ - Sequelize
 
 Contributors:
 
 Thank you to my group members for all their hard work and dedication. This project would be nothing without them. (Ruben Jose, David Hurley, Patrick Galloway)
-TODO
 
 -- Future Updates -- 
   - Amazon marketplace intigration.
